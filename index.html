@@ -20,7 +20,7 @@
       --bg-elevated: rgba(255, 255, 255, 0.65);
       --bg-nav: rgba(254, 245, 236, 0.85);
       
-      /* Text Colors (Dark plum/charcoal for readability on cream) */
+      /* Text Colors */
       --text-main: #1a0f16;
       --text-muted: #6b5a65;
       
@@ -52,7 +52,6 @@
 
     body {
       font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      /* Soft cream background with subtle fuchsia auras */
       background:
         radial-gradient(circle at top right, rgba(255, 0, 255, 0.05) 0, transparent 40%),
         radial-gradient(circle at bottom left, rgba(255, 0, 255, 0.05) 0, transparent 40%),
@@ -612,14 +611,16 @@
       border: 4px solid #ffffff;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       transition: var(--transition);
-      aspect-ratio: 4/5; /* Gives a consistent, elegant photo shape */
+      /* Remove fixed aspect-ratio so images can determine container height naturally */
+      display: flex; /* Helps ensure image fills container without forcing aspect */
     }
 
     .gallery-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto; /* Let the height adapt naturally */
+      display: block; /* Removes bottom spacing below images */
       transition: transform 0.6s ease;
+      /* Remove object-fit: cover; to prevent aggressive cropping */
     }
 
     .gallery-item::after {
@@ -638,7 +639,7 @@
       border-color: var(--accent);
     }
 
-    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item:hover img { transform: scale(1.03); } /* reduced scale slightly to prevent edge cutoff when hovering on natural images */
     .gallery-item:hover::after { opacity: 1; }
 
     @media (max-width: 860px) {
@@ -646,7 +647,6 @@
     }
 
     @media (max-width: 540px) {
-      /* On phones, photos stack neatly and take full width */
       .gallery--masonry, .gallery--four, .gallery--two { grid-template-columns: 1fr; }
     }
 
@@ -667,7 +667,6 @@
       overflow: hidden;
     }
 
-    /* Decorative element inside contact card */
     .contact-card::before {
       content: '';
       position: absolute;
@@ -831,7 +830,7 @@
             <img src="with babe 1 .png" alt="Maternity photography by Zahra">
           </div>
           <div class="hero-photo">
-            <img src="new image zahara 2.png" alt="Editorial portrait by Zahra">
+            <img src="zahara image 2.jpeg" alt="Editorial portrait by Zahra">
           </div>
           <div class="hero-photo">
             <img src="babe alone 1 .png" alt="Portrait photography by Zahra">
@@ -857,7 +856,7 @@
     <div class="about-grid">
       <div class="about-portrait">
         <div class="about-portrait-inner">
-          <img src="zahara image 2.jpeg" alt="Zahra portrait">
+          <img src="new image zahara 2.png" alt="Zahra portrait">
         </div>
       </div>
 
@@ -1003,7 +1002,7 @@
       </div>
       <div class="gallery gallery--two">
         <div class="gallery-item">
-          <img src="beaty 1 .png" alt="Beauty portrait 1">
+          <img src="zahara customer image new one.jpeg" alt="Beauty portrait 1">
         </div>
         <div class="gallery-item">
           <img src="beaty 2 .png" alt="Beauty portrait 2">
